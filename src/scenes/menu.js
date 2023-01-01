@@ -15,6 +15,7 @@ class Menu extends Phaser.Scene{
 
         this.menu = [
             {scene: "Play", text: "Graj"},
+            {scene: "Score", text: "Punkty"},
             {scene: null, text: "Wyjdź"}
         ]
     }

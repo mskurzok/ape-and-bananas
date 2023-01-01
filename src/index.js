@@ -3,6 +3,7 @@ import Phaser from "phaser";
 import Play from './scenes/play';
 import Preload from './scenes/preload';
 import Menu from './scenes/menu';
+import Score from './scenes/score';
 
 const config = {
   type: Phaser.AUTO,
@@ -14,7 +15,7 @@ const config = {
       debug: false
     }
   },
-  scene: [Preload, Menu, Play]
+  scene: [Preload, Menu, Score, Play]
 };
 
 new Phaser.Game(config);

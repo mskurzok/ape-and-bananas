@@ -52,19 +52,19 @@ class Play extends Phaser.Scene{
             this.createBanana();
         }
     }
-
+    
     createBG () {
         this.add.image(400, 300, 'sky');
     }
 
     createPlayer () {
         //new Player(this, 400, 300, "player");
-        this.player = this.physics.add.sprite(400, 500, "player");
+        this.player = this.physics.add.sprite(400, 500, "monkey-1");
         this.player.maxSize = 0.75;
         this.player.size = this.player.maxSize;
         this.player.setScale(this.player.size);
         this.player.setSize(54, 185);
-        this.player.maxSpeed = 400;
+        this.player.maxSpeed = 600;
         this.player.speed = this.player.maxSpeed;
         this.player.cursors = this.player.scene.input.keyboard.createCursorKeys();
         this.player.setCollideWorldBounds(true);
@@ -102,6 +102,7 @@ class Play extends Phaser.Scene{
         let gameOver = this.add.text(250, 200, "PRZEGRAŁEŚ", {fontSize: "64px", fill: "#000"});
         gameOver.setDepth(100);
         this.player.setTint(0xff0000);
+        this.player.setAlpha(0.5);
         this.saveBestScore();
     }
 
@@ -138,6 +139,7 @@ class Play extends Phaser.Scene{
         })
 
         restartButton.on('pointerup', () => {
+            this.saveBestScore();
             this.scene.restart();
             this.scene.start("Menu");
             this.score = 0;
